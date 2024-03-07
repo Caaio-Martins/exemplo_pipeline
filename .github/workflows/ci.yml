@@ -1,0 +1,22 @@
+
+name: CI/CD Aula
+
+on: [push, pull_request]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v2
+
+    - name: Usando Node.js
+      uses: actions/setup-node@v1
+      with:
+        node-version: '14'
+
+    - name: Instalando as dependencias
+      run: npm install
+
+    - name: Rodando os testes
+      run: npm test
+
